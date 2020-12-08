@@ -12,7 +12,7 @@ alphanumeric = re.compile('([0-9]+[a-z]+)|([0-9]+[A-Z]+)|([a-z]+[0-9]+)|([A-Z]+[
 symbols = re.compile('[^A-Za-z0-9\']')
 
 def words_from_archive(filename, include_dups=False, map_case=False):
-    with open(os.path.join(PATH,filename)) as f:
+    with open(os.path.join(PATH,filename), errors='ignore') as f:
         words = re.findall(RE, f.read())
     if include_dups:
         return words
